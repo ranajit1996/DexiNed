@@ -4,7 +4,7 @@ import time, os
 import numpy as np
 from os.path import join
 import cv2 as cv
-
+import tensorflow as tf
 from model import *
 from utls import image_normalization,visualize_result, tensor2image, cv_imshow,h5_writer
 from dataset_manager import DataLoader
@@ -160,6 +160,8 @@ class run_DexiNed():
                                      self.args.model_name + "2" + self.args.data4train)
 
         my_model.load_weights(os.path.join(checkpoit_dir, "DexiNed23_model.h5"))
+        my_model.save("dexined.h5", include_optimizer=False)
+        
 
         result_dir = os.path.join(
             self.args.output_dir,
