@@ -160,7 +160,7 @@ class run_DexiNed():
                                      self.args.model_name + "2" + self.args.data4train)
 
         my_model.load_weights(os.path.join(checkpoit_dir, "DexiNed23_model.h5"))
-        my_model.save("dexined.h5", include_optimizer=False)
+        my_model.save("dexined", include_optimizer=False)
         
 
         result_dir = os.path.join(
